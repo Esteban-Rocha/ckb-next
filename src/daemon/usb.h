@@ -50,7 +50,8 @@
 
 #define P_K63_NRGB           0x1b40
 #define P_K63_NRGB_WL        0x1b45 /* wireless */
-#define IS_K63(kb)           ((kb)->vendor == V_CORSAIR && ((kb)->product == P_K63_NRGB || (kb)->product == P_K63_NRGB_WL))
+#define P_K63_NRGB_WL2       0x1b50 /* wireless */
+#define IS_K63(kb)           ((kb)->vendor == V_CORSAIR && ((kb)->product == P_K63_NRGB || (kb)->product == P_K63_NRGB_WL) || (kb)->product == P_K63_NRGB_WL2)
 
 #define P_K65                0x1b17
 #define P_K65_LEGACY         0x1b07
@@ -114,7 +115,7 @@
 #define P_POLARIS            0x1b3b
 #define IS_POLARIS(kb)       ((kb)->vendor == V_CORSAIR && ((kb)->product == P_POLARIS))
 
-#define N_MODELS 35
+#define N_MODELS 36
 extern ushort models[];
 
 ///
