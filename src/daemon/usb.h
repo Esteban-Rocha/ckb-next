@@ -51,7 +51,8 @@
 #define P_K63_NRGB           0x1b40
 #define P_K63_NRGB_WL        0x1b45 /* wireless */
 #define P_K63_NRGB_WL2       0x1b50 /* wireless */
-#define IS_K63(kb)           ((kb)->vendor == V_CORSAIR && ((kb)->product == P_K63_NRGB || (kb)->product == P_K63_NRGB_WL) || (kb)->product == P_K63_NRGB_WL2)
+#define IS_K63_WL(kb)        ((kb)->vendor == V_CORSAIR && ((kb)->product == P_K63_NRGB_WL || (kb)->product == P_K63_NRGB_WL2))
+#define IS_K63(kb)           (IS_K63_WL(kb) || ((kb)->vendor == V_CORSAIR && ((kb)->product == P_K63_NRGB)))
 
 #define P_K65                0x1b17
 #define P_K65_LEGACY         0x1b07
@@ -172,7 +173,7 @@ const char* product_str(short product);
 
 /// Used for new devices that come with V3 firmware endpoint configuration out of the factory, but have fwversion < 0x300.
 /// Note: only the RGB variant of the K68 needs a v3 override.
-#define IS_V3_OVERRIDE(kb)              ((kb)->product == P_K68 || IS_DARK_CORE(kb))
+#define IS_V3_OVERRIDE(kb)              ((kb)->product == P_K68 || IS_DARK_CORE(kb) || IS_K63_WL(kb))
 
 /// Used when a device has a firmware with a low version number that uses the new endpoint configuration.
 #define IS_V2_OVERRIDE(kb)              (IS_V3_OVERRIDE(kb) || IS_PLATINUM(kb) || IS_K63(kb) || IS_K68(kb) || IS_HARPOON(kb) || IS_GLAIVE(kb) || IS_KATAR(kb) || (kb)->product == P_STRAFE_NRGB_2 || IS_POLARIS(kb))
