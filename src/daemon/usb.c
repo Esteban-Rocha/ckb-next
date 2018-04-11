@@ -46,9 +46,10 @@ ushort models[N_MODELS] = {
     P_SABRE_O2,
     P_HARPOON,
     P_KATAR,
-    // Mousepads
-    P_POLARIS,
     P_DARK_CORE,
+    P_DARK_CORE_SE,
+    // Mousepads
+    P_POLARIS
 };
 
 /// brief .
@@ -133,7 +134,7 @@ const char* product_str(short product){
         return "katar";
     if(product == P_POLARIS)
         return "polaris";
-    if(product == P_DARK_CORE || product == P_DARK_CORE_WL)
+    if(product == P_DARK_CORE || product == P_DARK_CORE_WL || product == P_DARK_CORE_SE || product == P_DARK_CORE_SE_WL)
         return "darkcore";
     return "";
 }
